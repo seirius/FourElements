@@ -2,6 +2,7 @@ package main.Graphics;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 
@@ -24,12 +25,12 @@ public class SpriteSheet {
 	
 	public static SpriteSheet tiles = new SpriteSheet("/Textures/spriteSheets/spriteSheet.png", 256);
 	public static SpriteSheet spawn_level = new SpriteSheet("/Textures/spriteSheets/spawn_level.png", 80);
-	public static SpriteSheet projectile_aang = new SpriteSheet("/Textures/spriteSheets/Projectiles/airbending.png", 96);
-	public static SpriteSheet airMeleeAtack = new SpriteSheet("/Textures/spriteSheets/Projectiles/airMeleeAtackv2.png", 64, 32);
-	public static SpriteSheet airMeleeAtackUpDown = new SpriteSheet("/Textures/spriteSheets/Projectiles/airMeleeAtackUpDownv2.png", 32, 64);
-	public static SpriteSheet earthCrash = new SpriteSheet("/Textures/spriteSheets/Projectiles/EarthCrash.png", 160, 128);
-	public static SpriteSheet beetleBabas1 = new SpriteSheet("/Textures/spriteSheets/Projectiles/babas1.png", 128, 128);
-	public static SpriteSheet beetleBabas2 = new SpriteSheet("/Textures/spriteSheets/Projectiles/babas2.png", 128, 128);
+	public static SpriteSheet projectile_aang = new SpriteSheet("/Textures/spriteSheets/projectiles/airbending.png", 96);
+	public static SpriteSheet airMeleeAtack = new SpriteSheet("/Textures/spriteSheets/projectiles/airMeleeAtackv2.png", 64, 32);
+	public static SpriteSheet airMeleeAtackUpDown = new SpriteSheet("/Textures/spriteSheets/projectiles/airMeleeAtackUpDownv2.png", 32, 64);
+	public static SpriteSheet earthCrash = new SpriteSheet("/Textures/spriteSheets/projectiles/EarthCrash.png", 160, 128);
+	public static SpriteSheet beetleBabas1 = new SpriteSheet("/Textures/spriteSheets/projectiles/babas1.png", 128, 128);
+	public static SpriteSheet beetleBabas2 = new SpriteSheet("/Textures/spriteSheets/projectiles/babas2.png", 128, 128);
 	public static SpriteSheet zukoMap = new SpriteSheet("/Textures/spriteSheets/zuko_map.png", 96);
 	public static SpriteSheet avatarHP = new SpriteSheet("/Textures/spriteSheets/avatarHP.png", 80, 32);
 	public static SpriteSheet numbers = new SpriteSheet("/Textures/spriteSheets/CharactersFonts/numbers.png", 80, 8);
@@ -52,14 +53,14 @@ public class SpriteSheet {
 	
 	
 	//Pruebas
-	public static SpriteSheet infernoPointer = new SpriteSheet("/Textures/spriteSheets/Projectiles/Inferno/Inferno.png", 144, 48);
-	public static SpriteSheet comet = new SpriteSheet("/Textures/spriteSheets/Projectiles/Inferno/Comet.png", 96, 32);
+	public static SpriteSheet infernoPointer = new SpriteSheet("/Textures/spriteSheets/projectiles/Inferno/Inferno.png", 144, 48);
+	public static SpriteSheet comet = new SpriteSheet("/Textures/spriteSheets/projectiles/Inferno/Comet.png", 96, 32);
 	
 	
 	//Cenimatica de Zuko
 	public static SpriteSheet zukoStageCh = new SpriteSheet("/Textures/spriteSheets/Cinematics/ZukoStageChange.png", 384, 480);
 	public static SpriteSheet zukoCinematic = new SpriteSheet("/Textures/spriteSheets/Cinematics/ZukoCinematic.png", 96, 32);
-	public static SpriteSheet zukoLeaving = new SpriteSheet("/Textures/spriteSheets/Cinematics/ZukoLeaving.png", 128, 32);
+	public static SpriteSheet zukoLeaving = new SpriteSheet("/Textures/spriteSheets/Cinematics/zukoLeaving.png", 128, 32);
 	
 	//Cinematica de Toph
 	public static SpriteSheet earthApp = new SpriteSheet("/Textures/spriteSheets/Cinematics/earthApp.png", 160, 32);
@@ -122,7 +123,8 @@ public class SpriteSheet {
 	
 	private void load() {
 		try {
-			BufferedImage image = ImageIO.read(SpriteSheet.class.getResource(path));
+			URL url = SpriteSheet.class.getResource(path);
+			BufferedImage image = ImageIO.read(url);
 			int w = image.getWidth();
 			int h = image.getHeight();
 			image.getRGB(0, 0, w, h, pixels, 0, w);
